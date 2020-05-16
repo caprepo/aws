@@ -14,6 +14,9 @@ sudo service mysqld status
 #Login
 sudo mysql -u root -p
 
+#to print password enable systemctrl
+sudo systemctl start mysqld.service
+
 #password not known-to change root password
 sudo grep 'temporary password' /var/log/mysqld.log
 sudo mysql_secure_installation
@@ -73,4 +76,4 @@ sudo mysql_secure_installation
 
 
 #login mysql with new password
-sudo mysql -u root
+sudo mysql -u root -p
