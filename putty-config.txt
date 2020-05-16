@@ -1,0 +1,9 @@
+1. download putty.exe and puttygen.exe
+
+2. open puttygen.exe and load pem file which downloaded from EC2 launch window. save Private key (*.ppk).
+
+3.Open putty enter EC2 IPV4 public ip in putty ("ec2-user@ 172.12.12.09").
+
+4. IN Auth -> Browse the ppk file.
+
+5. Click open
