@@ -1,0 +1,43 @@
+# s3 make bucket (create bucket)
+aws s3 mb s3://capgbucket --region us-west-2
+
+# s3 remove bucket
+aws s3 rb s3://capgbucket
+aws s3 rb s3://capgbucket --force
+
+# s3 ls commands
+aws s3 ls
+aws s3 ls s3://capgbucket
+aws s3 ls s3://capgbucket --recursive
+aws s3 ls s3://capgbucket --recursive  --human-readable --summarize
+
+# s3 cp commands
+aws s3 cp getdata.php s3://capgbucket
+aws s3 cp /local/dir/data s3://capgbucket --recursive
+aws s3 cp s3://capgbucket/getdata.php /local/dir/data
+aws s3 cp s3://capgbucket/ /local/dir/data --recursive
+aws s3 cp s3://capgbucket/init.xml s3://backup-bucket
+aws s3 cp s3://capgbucket s3://backup-bucket --recursive
+
+# s3 mv commands
+aws s3 mv source.json s3://capgbucket
+aws s3 mv s3://capgbucket/getdata.php /home/project
+aws s3 mv s3://capgbucket/source.json s3://backup-bucket
+aws s3 mv /local/dir/data s3://capgbucket/data --recursive
+aws s3 mv s3://capgbucket s3://backup-bucket --recursive
+
+# s3 rm commands
+aws s3 rm s3://capgbucket/queries.txt
+aws s3 rm s3://capgbucket --recursive
+
+# s3 sync commands
+aws s3 sync backup s3://capgbucket
+aws s3 sync s3://capgbucket/backup /tmp/backup
+aws s3 sync s3://capgbucket s3://backup-bucket
+
+# s3 bucket website
+aws s3 website s3://capgbucket/ --index-document index.html --error-document error.html
+
+# s3 presign url (default 3600 seconds)
+aws s3 presign s3://capgbucket/dnsrecords.txt
+aws s3 presign s3://capgbucket/dnsrecords.txt --expires-in 60
